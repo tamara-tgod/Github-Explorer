@@ -1,75 +1,84 @@
-# React + TypeScript + Vite
+# GitHub Explorer 🔍
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Search any GitHub user by username and explore their profile, stats, and top repositories.
 
-Currently, two official plugins are available:
+## Live Demo
+🌐 [github-explorer-ten-mocha.vercel.app](https://github-explorer-ten-mocha.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- Search any GitHub user by username
+- View profile — avatar, name, bio and handle
+- See public repos, followers and following count
+- Browse top repositories with language and star count
+- Handles errors gracefully — empty input, invalid usernames
+- Fetches user and repos simultaneously with `Promise.all`
 
-Note: This will impact Vite dev & build performances.
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React** — UI library
+- **TypeScript** — type safety throughout
+- **Tailwind CSS v4** — styling
+- **Vite** — build tool
+- **GitHub REST API** — data source
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Clone the repository
+git clone https://github.com/Tamara-tgod/github-explorer.git
+
+# Navigate into the project
+cd github-explorer
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project Structure
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+src/
+├── component/
+│   └── Topbar.tsx        # Terminal header bar
+├── types.ts              # TypeScript interfaces
+├── App.tsx               # Main application component
+└── index.css             # Global styles + Tailwind theme
+```
+
+---
+
+## TypeScript Highlights
+
+This project was built as part of a structured TypeScript learning roadmap. Key patterns used:
+
+- **Interfaces** for typing GitHub API responses (`GitHubUser`, `GitHubRepo`)
+- **Generics** with `useState<GitHubUser | null>`
+- **Async/await** with typed `Promise` return types
+- **Optional properties** for fields that may not exist on every user
+- **Type narrowing** with `instanceof Error` in catch blocks
+
+---
+
+## Screenshots
+
+![GitHub Explorer](./src/assets/screenshot.png)
+
+---
+
+## Author
+
+**Itemearau ThankGod** — [@Tamara-tgod](https://github.com/Tamara-tgod)
+
+Built during a 100-day coding consistency challenge.

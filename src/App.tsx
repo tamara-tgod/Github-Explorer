@@ -145,7 +145,7 @@ function App() {
                 </p>
                 {/* repo */}
                 {repo &&
-                  repo.slice(5, 8).map((r) => (
+                  repo.slice(0, 3).map((r) => (
                     <div
                       key={r.name}
                       className="flex justify-between items-center py-3 px-3 w-[94%] m-auto mb-3 bg-[#0d1117] border border-[#21262d] rounded-xl"
