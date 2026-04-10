@@ -7,5 +7,13 @@ export interface GitHubUser {
   followers: number;
   following: number;
   html_url: string;
+  location?: string;
+  blog?: string;
 }
 
+export interface GitHubRepo {
+  name: string;
+  description?: string;
+  language?: string;
+  stargazers_count: number;
+}
